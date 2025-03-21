@@ -1,0 +1,16 @@
+<h1 class="text-3xl">Listado Pokemons</h1>
+<h2 class="text-2xl">{{currentPage()}}</h2>
+<hr class="my-2" />
+
+@defer () {
+<pokemon-list [pokemonList]="pokemons()"></pokemon-list>
+}@placeholder {
+  <pokemon-skeleton />
+}@loading {
+<pokemon-skeleton />
+}
+
+<div class="flex justify-between">
+  <button (click)="loadPokemons(-1)" class="mt-4 cursor-pointer">Anteriores</button>
+  <button (click)="loadPokemons(+1)" class="mt-4 cursor-pointer">Siguientes</button>
+</div>
